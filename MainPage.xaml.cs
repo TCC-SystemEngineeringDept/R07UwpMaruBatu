@@ -89,7 +89,7 @@ namespace UwpMaruBatu
         /// </summary>
         /// <param name="textBlock">設定対象のTextBlock</param>
         /// <param name="value">BAN配列からの値 (0:空白, 1:〇, 2:×</param>
-        private void SetCellText(TextBlock textBlock, int value)
+        public void SetCellText(TextBlock textBlock, int value)
         {
             switch (value)
             {
@@ -106,6 +106,10 @@ namespace UwpMaruBatu
                     break;
             }
         }
-    }
+        public bool CanPlaceMark(int row, int col)
+        {
+            return false;
+        }
 
+    }
 }
