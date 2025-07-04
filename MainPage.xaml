@@ -43,82 +43,109 @@
             </ListView>
 
             <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock x:Name="t11" Text="1,1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t11" Content="1,1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="1,1"/>
             </Border>
             <Border Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock x:Name="t12" Text="1,2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t12" Content="1,2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="1,2"/>
             </Border>
+
             <Border Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock  x:Name="t13" Text="1,3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t13" Content="1,3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="1,3"/>
             </Border>
             <Border Grid.Row="1" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock x:Name="t14"  Text="1,4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t14" Content="1,4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="1,4"/>
             </Border>
             <Border Grid.Row="1" Grid.Column="5" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock  x:Name="t15" Text="1,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t15" Content="1,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="1,5"/>
             </Border>
 
             <Border Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock  x:Name="t21" Text="2,1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t21" Content="2,1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="2,1"/>
             </Border>
             <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock  x:Name="t22" Text="2,2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t22" Content="2,2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="2,2"/>
             </Border>
             <Border Grid.Row="2" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock  x:Name="t23" Text="2,3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t23" Content="2,3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="2,3"/>
             </Border>
             <Border Grid.Row="2" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock  x:Name="t24" Text="2,4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t24" Content="2,4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="2,4"/>
             </Border>
             <Border Grid.Row="2" Grid.Column="5" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock  x:Name="t25" Text="2,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t25" Content="2,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="2,5"/>
             </Border>
 
             <Border Grid.Row="3" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock  x:Name="t31" Text="3,1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t31" Content="3,1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="3,1"/>
             </Border>
             <Border Grid.Row="3" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock  x:Name="t32" Text="3,2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t32" Content="3,2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="3,2"/>
             </Border>
             <Border Grid.Row="3" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock  x:Name="t33" Text="3,3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t33" Content="3,3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="3,3"/>
             </Border>
             <Border Grid.Row="3" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock  x:Name="t34" Text="3,4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t34" Content="3,4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="3,4"/>
             </Border>
             <Border Grid.Row="3" Grid.Column="5" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock  x:Name="t35" Text="3,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t35" Content="3,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="3,5"/>
             </Border>
 
             <Border Grid.Row="4" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock  x:Name="t41" Text="4,1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t41" Content="4,1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="4,1"/>
             </Border>
             <Border Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock  x:Name="t42"  Text="4,2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t42" Content="4,2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="4,2"/>
             </Border>
             <Border Grid.Row="4" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock   x:Name="t43" Text="4,3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t43" Content="4,3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="4,3"/>
             </Border>
             <Border Grid.Row="4" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock   x:Name="t44" Text="4,4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t44" Content="4,4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="4,4"/>
             </Border>
             <Border Grid.Row="4" Grid.Column="5" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock  x:Name="t45" Text="4,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t45" Content="4,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="4,5"/>
             </Border>
 
             <Border Grid.Row="5" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock   x:Name="t51" Text="5,1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t51" Content="5,1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="5,1"/>
             </Border>
             <Border Grid.Row="5" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock   x:Name="t52" Text="5,2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>            </Border>
+                <Button x:Name="t52" Content="5,2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="5,2"/>
+            </Border>
             <Border Grid.Row="5" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock   x:Name="t53" Text="5,3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t53" Content="5,3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="5,3"/>
             </Border>
             <Border Grid.Row="5" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock   x:Name="t54" Text="5,4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t54" Content="5,4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="5,4"/>
             </Border>
             <Border Grid.Row="5" Grid.Column="5" BorderBrush="Black" BorderThickness="1" Margin="2">
-                <TextBlock   x:Name="t55" Text="5,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                <Button x:Name="t55" Content="5,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"
+                        Command="{Binding CellClickedCommand}" CommandParameter="5,5"/>
             </Border>
         </Grid>
     </Grid>

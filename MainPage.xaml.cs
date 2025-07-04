@@ -1,8 +1,10 @@
-﻿using System;
+﻿// MainPage.xaml.cs
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Windows.Input; // ICommand を使うために必要
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -13,8 +15,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// 空白ページの項目テンプレートについては、https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x411 を参照してください
-
 namespace UwpMaruBatu
 {
     public sealed partial class MainPage : Page
@@ -23,15 +23,23 @@ namespace UwpMaruBatu
         // 0: 空白, 1: 〇, 2: ×
         private int[,] BAN = {
             {0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0},
             {0, 0, 1, 0, 0},
-            {0, 0, 0, 0, 0},
+            {0, 0, 1, 2, 0},
+            {0, 0, 2, 0, 0},
             {0, 0, 0, 0, 0}
         };
 
+        // コマンドを公開するプロパティ
+        public ICommand CellClickedCommand { get; private set; }
+
         public MainPage()
         {
-            this.InitializeComponent();
+            this.InitializeComponent(); // これでエラーが解消されるはず
+            this.DataContext = this; // DataContext を自身に設定することで、XAMLからプロパティにバインドできるようになる
+
+            // コマンドの初期化
+            CellClickedCommand = new DelegateCommand(OnCellClicked);
+
             // ページがロードされたときに盤面を描画する
             this.Loaded += MainPage_Loaded;
         }
@@ -43,17 +51,13 @@ namespace UwpMaruBatu
         }
 
         /// <summary>
-        /// BAN配列の内容をUIのTextBlockに表示します。
+        /// BAN配列の内容をUIのButtonに表示します。
         /// 0: 空白, 1: 〇, 2: ×
         /// </summary>
         private void drawBan()
         {
-            // TextBlockの名前とBAN配列のインデックスをマッピング
-            // この方法は冗長ですが、XAMLで各TextBlockにx:Nameを付けているため、直接アクセスします。
-            // より動的な方法としては、GridにClickイベントを設定し、
-            // クリックされたBorder/TextBlockのGrid.RowとGrid.Columnを取得する方法もあります。
-
-            SetCellText(t11, BAN[0, 0]);
+            // Buttonの名前とBAN配列のインデックスをマッピング
+            SetCellText(t11, BAN[0, 0]); // t11も追加
             SetCellText(t12, BAN[0, 1]);
             SetCellText(t13, BAN[0, 2]);
             SetCellText(t14, BAN[0, 3]);
@@ -85,31 +89,81 @@ namespace UwpMaruBatu
         }
 
         /// <summary>
-        /// セルのTextBlockに適切なテキストを設定します。
+        /// セルのButtonに適切なテキストを設定します。
         /// </summary>
-        /// <param name="textBlock">設定対象のTextBlock</param>
+        /// <param name="button">設定対象のButton</param>
         /// <param name="value">BAN配列からの値 (0:空白, 1:〇, 2:×</param>
-        public void SetCellText(TextBlock textBlock, int value)
+        public void SetCellText(Button button, int value) // TextBlock から Button に変更
         {
             switch (value)
             {
                 case 0:
+                    button.Content = " "; // 空白
                     break;
                 case 1:
-                    textBlock.Text = "〇"; // 丸
+                    button.Content = "〇"; // 丸
                     break;
                 case 2:
-                    textBlock.Text = "×"; // バツ
+                    button.Content = "×"; // バツ
                     break;
                 default:
-                    textBlock.Text = "  "; // 空白
+                    button.Content = " "; // 空白
                     break;
             }
         }
-        public bool CanPlaceMark(int row, int col)
+
+        // ボタンがクリックされたときに呼び出されるメソッド
+        private async void OnCellClicked(object parameter)
         {
-            return false;
+            // parameter に CommandParameter で指定した値（例: "1,1", "1,2" など）が渡される
+            if (parameter is string cellLocation)
+            {
+                var dialog = new ContentDialog
+                {
+                    Title = "ボタンクリック",
+                    Content = $"クリックされました: {cellLocation}",
+                    CloseButtonText = "OK"
+                };
+                await dialog.ShowAsync();
+            }
         }
 
+        public bool CanPlaceMark(int[,] BAN, int row, int col)
+        {
+            // CheckClass1 がない場合はこの行でエラーになります
+            // その場合は、CheckClass1 の定義か、またはそのメソッドを直接ここに記述してください
+            return CheckClass1.CanPlaceMark(BAN, row, col);
+        }
+
+        // DelegateCommand クラスは MainPage クラスの外（同じnamespace内）に配置することを推奨
+        // ただし、このままでも動作はしますが、慣例としてファイル分割が望ましいです。
+        public class DelegateCommand : ICommand
+        {
+            private readonly Action<object> _execute;
+            private readonly Func<object, bool> _canExecute;
+
+            public event EventHandler CanExecuteChanged;
+
+            public DelegateCommand(Action<object> execute, Func<object, bool> canExecute = null)
+            {
+                _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+                _canExecute = canExecute;
+            }
+
+            public bool CanExecute(object parameter)
+            {
+                return _canExecute == null || _canExecute(parameter);
+            }
+
+            public void Execute(object parameter)
+            {
+                _execute(parameter);
+            }
+
+            public void RaiseCanExecuteChanged()
+            {
+                CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
     }
 }
